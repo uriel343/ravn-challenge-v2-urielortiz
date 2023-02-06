@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { createCategory } from "../controller/categories.controller";
-import { createProduct } from "../controller/products.controller";
+import { createProduct, deleteProduct, getProducts, updateProduct } from "../controller/products.controller";
 import {
   getUsuarios,
   loginUser,
@@ -19,9 +19,14 @@ router.get("/getusers", authenticatedUser, getUsuarios);
 
 //Product routes 
 router.post('/product/create', createProduct)
+router.get('/products', getProducts)
+router.put('/product/update/:id', updateProduct)
+router.delete('/product/delete/:id', deleteProduct)
+
 
 //Category routes 
-router.post('/create-category', createCategory)
+router.post('category/create', createCategory)
+
 
 
 export default router;
